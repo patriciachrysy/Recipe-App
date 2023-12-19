@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
-  describe "GET /index" do
+RSpec.describe 'Users', type: :request do
+  describe 'GET /index' do
     let(:user) { create(:user) }
 
     it 'returns a successful response' do
