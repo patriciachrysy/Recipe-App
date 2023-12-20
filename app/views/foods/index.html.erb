@@ -1,0 +1,9 @@
+<div class="food-list">
+    <h2>Your stored food</h2>
+    <%= render 'table_head', { columns: %i['Food' 'Measurement Unit' 'Unit Price'], with_actions: true } %>
+    <tbody>
+        <% @foods.each do |food| %>
+            <%= render food %>
+        <% end %>
+    </tbody>
+</div>
