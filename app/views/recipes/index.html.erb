@@ -9,7 +9,7 @@
       <div class='recipe-info'>
         <div class='recipe-n'>
           <%= link_to "#{recipe.name}", recipe_path(recipe), class: 'recipe-name' %>
-          <h3 class='remove'>Remove</h3>
+          <%= link_to 'Remove', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: 'remove' %>
         </div>
         <div>
           <p class='recipe-decision'><%= recipe.description %></p>

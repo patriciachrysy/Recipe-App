@@ -97,6 +97,7 @@ td {
 .remove {
   font-weight: 400;
   color: rgb(0, 0, 194);
+  text-decoration: none;
 }
 
 .recipe-name {
