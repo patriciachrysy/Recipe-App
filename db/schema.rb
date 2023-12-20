@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_143342) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
+    t.string "photo"
     t.integer "preparation_time"
     t.integer "cooking_time"
     t.text "description"

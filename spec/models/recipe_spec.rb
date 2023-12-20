@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
+  user = User.create(name: 'John Doe', photo: 'https://john-doe-picture', email: 'john@doe.com', password: 'johndoe123')
+
   subject do
-    Recipe.new(name: 'Pizza', preparation_time: 30, cooking_time: 15, description: 'Very easy to prepare', public: true)
+    Recipe.new(user:, name: 'Pizza', preparation_time: 30, cooking_time: 15, description: 'Very easy to prepare',
+               public: true)
   end
 
   before { subject.save }
@@ -11,7 +14,7 @@ RSpec.describe Recipe, type: :model do
     it 'requires name to be present' do
       subject.name = nil
       expect(subject).to_not be_valid
-      expect(subject.errors[:name]).to include('cannot be blank')
+      expect(subject.errors[:name]).to include("can't be blank")
     end
 
     it 'requires preparation_time to be a non-negative number' do
@@ -29,7 +32,7 @@ RSpec.describe Recipe, type: :model do
     it 'requires description to be present' do
       subject.description = nil
       expect(subject).to_not be_valid
-      expect(subject.errors[:description]).to include('cannot be blank')
+      expect(subject.errors[:description]).to include("can't be blank")
     end
 
     it 'requires description to have a maximum length of 250 characters' do
