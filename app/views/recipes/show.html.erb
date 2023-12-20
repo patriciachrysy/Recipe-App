@@ -1,0 +1,44 @@
+<%= stylesheet_link_tag "recipes" %>
+<%= link_to 'Back', recipes_path, class: 'back-link'  %>
+
+<div class='recipe-show'>
+  <h2 class='head'><%= @recipe.name %></h2>
+  <div class='details'>
+    <div>
+      <p>Preparation time: <%= @recipe.preparation_time %></p>
+      <p>Cooking time: <%= @recipe.cooking_time %></p>
+      <p><%= @recipe.steps %></p>
+    </div>
+    <p>Public <%= @recipe.public %></p>
+  </div>
+  <div class='buttons'>
+    <button type='button' class='button'>Generate shopping list</button>
+    <button type='button' class='button'>Add ingredient</button>
+  </div>
+  <hr class='hr'>
+  <table>
+    <thead>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Apple</td>
+            <td>Pineapple</td>
+            <td>Chicken breasts</td>
+        </tr>
+        <tr>
+            <td>20g</td>
+            <td>10g</td>
+            <td>2 units</td>
+        </tr>
+        <tr>
+            <td>$100</td>
+            <td>$10</td>
+            <td>$4</td>
+        </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "recipes" %>
+
+<ul class='recipe-list'>
+  <% @recipes.each do |recipe| %>
+    <li class='card'>
+      <div class='recipe-photo'>
+        <img src='<%= recipe.photo %>' alt='<%= recipe.name %>' class='recipe-photo' />
+      </div>
+      <div class='recipe-info'>
+        <div class='recipe-n'>
+          <%= link_to "#{recipe.name}", recipe_path(recipe), class: 'recipe-name' %>
+          <remove>
+        </div>
+        <div>
+          <p class='recipe-decision'><%= recipe.description %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
