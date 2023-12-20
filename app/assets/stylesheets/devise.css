@@ -53,3 +53,25 @@
   font-style: italic;
   font-weight: 300;
 }
+
+.cancelation {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.btn-2 {
+  text-decoration: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  background-color: gray;
+  border: 1px solid rgb(0, 0, 38);
+  border-radius: 4px;
+  color: black;
+  margin: 6px 0;
+  font-size: 14px;
+}
