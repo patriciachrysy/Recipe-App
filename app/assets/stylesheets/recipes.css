@@ -77,23 +77,35 @@ td {
 }
 
 .recipe-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   border: 2px solid rgb(0, 0, 194);
   border-radius: 8px;
   width: 90%;
+}
+
+.recipe-n {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-left: 16px;
+}
+
+.remove {
+  font-weight: 400;
+  color: rgb(0, 0, 194);
 }
 
 .recipe-name {
   font-size: 26px;
   text-decoration: none;
   color: rgb(236, 110, 0);
-  margin: 20px;
 }
 
 .recipe-decision {
   font-size: 16px;
   margin: 20px;
-}
-
-.recipe-n {
-  margin-top: 20px;
 }
