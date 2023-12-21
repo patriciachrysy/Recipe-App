@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
-    let(:user) { create(:user) }
+    let(:user) { User.create(name: 'Testor', email: 'test@example.com', password: 'password123') }
+    before { sign_in user }
 
     it 'returns a successful response' do
       get '/'

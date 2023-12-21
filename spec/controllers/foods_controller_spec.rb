@@ -17,7 +17,7 @@ RSpec.describe FoodsController, type: :controller do
       measurement_unit: 'Grams',
       price: 1.99,
       quantity: 10,
-      user: user
+      user:
     }
   end
 
@@ -25,17 +25,17 @@ RSpec.describe FoodsController, type: :controller do
 
   describe 'GET #index' do
     it 'assigns @foods for the current user' do
-      3.times do |i|
+      3.times do |_i|
         Food.create(
-            name: 'Apple',
-            measurement_unit: 'Grams',
-            price: 1.99,
-            quantity: 10,
-            user:
+          name: 'Apple',
+          measurement_unit: 'Grams',
+          price: 1.99,
+          quantity: 10,
+          user:
         )
       end
       get :index
-      expect(assigns(:foods)).to eq(Food.where(user: user))
+      expect(assigns(:foods)).to eq(Food.where(user:))
     end
 
     it 'renders the index template' do
@@ -124,5 +124,4 @@ RSpec.describe FoodsController, type: :controller do
       expect(response).to redirect_to(foods_path)
     end
   end
-
 end
