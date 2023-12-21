@@ -1,0 +1,37 @@
+<%= form_with model: food do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% food.errors.full_messages_for(:name).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :measurement_unit %><br>
+    <%= form.text_field :measurement_unit %>
+    <% food.errors.full_messages_for(:measurement_unit).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.number_field :price %>
+    <% food.errors.full_messages_for(:price).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %><br>
+    <%= form.number_field :quantity %>
+    <% food.errors.full_messages_for(:quantity).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Save", class: 'button-link' %>
+  </div>
+<% end %>
