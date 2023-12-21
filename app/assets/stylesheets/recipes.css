@@ -11,18 +11,19 @@
 .head {
   text-align: center;
   font-size: 28px;
-  color: rgb(0, 0, 194);
+  color: rgb(190, 76, 0);
+  margin-top: 30px;
 }
 
-.details,
-.buttons {
+.details {
   display: flex;
   gap: 40px;
   justify-content: space-between;
   align-items: start;
-  margin: 30px 100px;
+  margin: 30px 300px;
   line-height: 40px;
   font-size: 24px;
+  color: rgb(0, 0, 96);
 }
 
 .button {
@@ -37,34 +38,14 @@
   box-shadow: 2px 2px 2px gray;
 }
 
-.hr {
-  width: 80%;
-  margin: 0 auto;
-  color: rgb(0, 0, 194);
-  margin-bottom: 30px;
-}
-
-table {
-  margin: 0 auto;
-  text-align: center;
-}
-
-th,
-td {
-  border: 1px solid black;
-  padding: 6px;
-  width: 200px;
-}
-
 .back-link {
-  border: 1px solid rgb(148, 69, 0);
-  background-color: rgb(236, 110, 0);
+  background-color: rgb(177, 131, 47);
   box-shadow: 1px 1px 1px gray;
   color: white;
   border-radius: 26px;
-  padding: 15px 9px;
+  padding: 13px 17px;
   text-decoration: none;
-  margin: 20px;
+  margin: 40px;
 }
 
 .recipe-list {
@@ -80,7 +61,7 @@ td {
   display: flex;
   align-items: center;
   gap: 20px;
-  border: 2px solid rgb(0, 0, 194);
+  border: 2px solid rgb(0, 0, 38);
   border-radius: 8px;
   width: 90%;
 }
@@ -96,7 +77,7 @@ td {
 
 .remove {
   font-weight: 400;
-  color: rgb(0, 0, 194);
+  color: rgb(0, 0, 58);
   text-decoration: none;
 }
 

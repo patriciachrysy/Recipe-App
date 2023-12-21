@@ -4,11 +4,7 @@
   <% @users.each do |user| %>
     <li class='card'>
       <div class='photo'>
-        <% if user.photo.present? %>
-        <%= image_tag(user.photo, alt: user.name, class: "user-photo") %>
-        <% else %>
-        <%= image_tag "user.jpeg", height: 200 %>
-        <% end %>
+        <img src='<%= user.photo %>' alt='<%= user.name %>' class='user-photo' />
       </div>
       <div class='userinfo'>
         <h2 class='username'><%= user.name %></h2>

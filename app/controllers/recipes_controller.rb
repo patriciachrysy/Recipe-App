@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   load_and_authorize_resource
 
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_recipe, only: %i[show destroy]
 
   def index
     @recipes = Recipe.all
@@ -14,6 +13,17 @@ class RecipesController < ApplicationController
 
   def public_recipes
     @public_recipes = Recipe.public_recipes
+  end
+
+  def update_public_status
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: true)
+
+    redirect_to @recipe, notice: 'Recipe is now public.'
+  end
+
+  def new
+    @recipe = Recipe.new
   end
 
   def create
@@ -32,12 +42,7 @@ class RecipesController < ApplicationController
 
   private
 
-  def set_recipe
-    @recipe = Recipe.find(params[:id])
-  end
-
   def recipe_params
-    params.require(:recipe).permit(:name, :photo, :steps, :preparation_time, :cooking_time, :description, :public,
-                                   :user)
+    params.require(:recipe).permit(:name, :photo, :steps, :preparation_time, :cooking_time, :description, :public)
   end
 end

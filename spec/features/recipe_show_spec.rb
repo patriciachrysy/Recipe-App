@@ -5,9 +5,8 @@ RSpec.feature 'Recipe Show Page' do
     User.create(name: 'John Doe', photo: 'https://john-doe-picture', email: 'john@doe.com', password: 'johndoe123')
   end
   let!(:recipe1) do
-    Recipe.create(user_id: user1, name: 'Pizza', preparation_time: 30, cooking_time: 15, description: 'Very easy to prepare',
-                  steps: 'Prepare dough. Add a sauce and tomato. Bake 10 min.', public: true,
-                  photo: File.open(Rails.root.join('public/uploads', 'pizza_image.jpeg')))
+    Recipe.create(user: user1, name: 'Pizza', preparation_time: 30, cooking_time: 15, description: 'Very easy to prepare',
+                  public: true, photo: File.open(Rails.root.join('public/uploads', 'pizza_image.jpeg')))
   end
 
   scenario 'Displays recipe name' do
@@ -21,8 +20,8 @@ RSpec.feature 'Recipe Show Page' do
     expect(page).to have_content(recipe1.cooking_time)
   end
 
-  scenario 'Displays recipe steps' do
+  scenario 'Displays recipe description' do
     visit recipe_path(recipe1)
-    expect(page).to have_content(recipe1.steps)
+    expect(page).to have_content(recipe1.description)
   end
 end

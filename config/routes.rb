@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :users, only: %i[index show]
-  resources :recipes, only: %i[index show create destroy]
+  resources :recipes, only: %i[index show create destroy] do
+    member do
+      patch 'update_public_status'
+    end
+  end
   get "up" => "rails/health#show", as: :rails_health_check
 end
