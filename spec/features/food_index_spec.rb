@@ -2,13 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.feature "Foods view", type: :feature do
+RSpec.feature 'Foods view', type: :feature do
   let(:user) { User.create(name: 'John Doe', email: 'test@example.com', password: 'password123') }
 
   before { sign_in user }
 
   scenario "User sees the 'Your stored food' section" do
-    food = Food.create(name: 'Apple', measurement_unit: 'Piece', price: 1.99, quantity: 5, user: user)
+    Food.create(name: 'Apple', measurement_unit: 'Piece', price: 1.99, quantity: 5, user:)
     visit foods_path
 
     expect(page).to have_css('.food-container')
@@ -22,7 +22,7 @@ RSpec.feature "Foods view", type: :feature do
     expect(page).to have_css('.food-row', count: Food.count)
   end
 
-  scenario "User sees a message when no food is available" do
+  scenario 'User sees a message when no food is available' do
     visit foods_path
 
     expect(page).to have_content('No food in your store, click on the button to add some.')
