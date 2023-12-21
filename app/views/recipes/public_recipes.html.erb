@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "recipes" %>
+
+<h1 class='head'>Public Recipes</h1>
+
+<% @public_recipes.each do |recipe| %>
+  <ul class='public-ul-list'>
+    <li class='public-list'>
+      <div class='recipe-n1'>
+        <h2 class='rec-name'><%= recipe.name %></h2>
+        <p class='by'>By: @user.name</p>
+      </div>
+      <div class='total'>
+        <p>Total food items: 4</p>
+        <p>Total price: $100</p>
+      </div>
+    </li>
+  </ul>
+<% end %>

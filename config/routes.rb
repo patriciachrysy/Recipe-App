@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :users, only: %i[index show]
+  get "public_recipes" => "recipes#public_recipes", as: 'public_recipes'
   resources :recipes, only: %i[index show create destroy] do
     member do
       patch 'update_public_status'
