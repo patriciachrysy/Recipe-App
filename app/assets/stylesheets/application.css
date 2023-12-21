@@ -13,3 +13,79 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+body {
+  font-family: 'Cookie', cursive !important;
+}
+
+.button-link {
+  border: 2px solid rgb(177, 131, 47);
+  background-color: rgb(0, 0, 38);
+  color: white;
+  border-radius: 5px;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+thead tr {
+  background-color: rgb(0, 0, 38);
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(230, 237, 237);
+}
+
+th,
+td {
+  padding: 10px;
+  width: auto;
+  border: 1px solid black;
+}
+
+tbody tr .action-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+tbody tr .action-buttons a {
+  font-size: 13px;
+  text-decoration: none;
+  padding: 5px 20px;
+  color: white;
+  border-radius: 50px;
+}
+
+.danger-bg {
+  background-color: rgb(143, 15, 3);
+}
+
+.info-bg {
+  background-color: rgb(3, 13, 105);
+}
+
+.error-messages {
+  color: rgb(143, 15, 3);
+}
+
+.flash {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.notice {
+  background-color: #d3f5b8;
+  color: #145214;
+}
+
+.alert {
+  background-color: #ffcccb;
+  color: #8b0000;
+}
