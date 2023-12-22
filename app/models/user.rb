@@ -1,10 +1,9 @@
 class User < ApplicationRecord
   has_many :foods
+  has_many :recipes
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_many :recipes, foreign_key: 'user_id'
 
   mount_uploader :photo, PhotoUploader
 
