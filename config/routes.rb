@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :foods, except: %i[show]
   
   resources :users, only: %i[index show]
-  get "public_recipes" => "recipes#public_recipes", as: 'public_recipes'
+  resources :public_recipes, only: [:index]
   resources :recipes, only: %i[index show create destroy] do
     member do
       patch 'update_public_status'

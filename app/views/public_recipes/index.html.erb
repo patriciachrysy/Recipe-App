@@ -7,11 +7,11 @@
     <li class='public-list'>
       <div class='recipe-n1'>
         <h2 class='rec-name'><%= recipe.name %></h2>
-        <p class='by'>By: @user.name</p>
+        <p class='by'>By: <%= recipe.user.name %></p>
       </div>
       <div class='total'>
-        <p>Total food items: 4</p>
-        <p>Total price: $100</p>
+        <p>Total food items: <%= recipe.foods.count %></p>
+        <p>Total price: <%= recipe.foods.sum(:price) %></p>
       </div>
     </li>
   </ul>

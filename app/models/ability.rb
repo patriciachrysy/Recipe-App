@@ -6,15 +6,15 @@ class Ability
 
     if user.is? :admin
       can :manage, Food
-      # can :manage, Recipe
+      can :manage, Recipe
       can :manage, User
     else
       can :read, Food
       can :create, Food
       can :update, Food, user_id: user.id
       can :destroy, Food, user_id: user.id
-      # can :read, Recipe
-      # can :manage, Recipe, user_id: user.id
+      can :read, Recipe
+      can :manage, Recipe, user_id: user.id
     end
   end
 end
