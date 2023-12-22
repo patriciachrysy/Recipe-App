@@ -1,0 +1,14 @@
+<tr class='food-row'>
+    <td><%= recipe_food.food.name %></td>
+    <td><%= recipe_food.quantity %><%= recipe_food.food.measurement_unit %></td>
+    <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
+    <% if with_actions %>
+        <td class='action-buttons'>
+            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_food.recipe, recipe_food), class: 'info-bg' if can? :update, recipe_food.recipe %>
+            <%= link_to "Remove", recipe_recipe_food_path(recipe_food.recipe, recipe_food), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: 'Are you sure you want to remove this ingredient?'
+                }, class: 'danger-bg' if can? :update, recipe_food.recipe %>
+        </td>
+    <% end %>
+</tr>

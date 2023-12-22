@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  has_many :recipeFoods
+  has_many :recipe_foods
 
   mount_uploader :photo, PhotoUploader
 

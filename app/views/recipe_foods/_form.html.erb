@@ -1,0 +1,22 @@
+<%= form_with model: [recipe, recipe_food ] do |form| %>
+  <div>
+    <%= form.label :food %><br>
+    <%= form.collection_select :food_id, foods, :id, :name, prompt: true %>
+    <%= puts form.collection_select(:food_id, foods, :id, :name, prompt: true).to_s %>
+    <% recipe_food.errors.full_messages_for(:food).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %><br>
+    <%= form.number_field :quantity %>
+    <% recipe_food.errors.full_messages_for(:quantity).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Save", class: 'button-link' %>
+  </div>
+<% end %>

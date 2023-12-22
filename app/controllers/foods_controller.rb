@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.user = current_user
-    authorize! :create, @food
+    authorize! :create, Food
 
     if @food.save
       flash[:notice] = "#{@food.name} was successfully added to you store"
