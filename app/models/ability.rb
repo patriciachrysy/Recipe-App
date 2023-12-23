@@ -13,8 +13,11 @@ class Ability
       can :create, Food
       can :update, Food, user_id: user.id
       can :destroy, Food, user_id: user.id
+
       can :read, Recipe
-      can :manage, Recipe, user_id: user.id
+      can :create, Recipe
+      can :update, Recipe, user_id: user.id
+      can :destroy, Recipe, user_id: user.id
     end
   end
 end

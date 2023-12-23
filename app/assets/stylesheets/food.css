@@ -26,6 +26,7 @@
 
 .food-container form input[type=text],
 .food-container form input[type=number],
+.food-container form select,
 .food-container form textarea {
   width: 95%;
   font-family: 'Cookie', cursive;
@@ -35,6 +36,14 @@
   font-size: 18px;
 }
 
-.food-container form input[type=submit] {
+.food-container form input[type=submit],
+.food-container form select {
   font-family: 'Cookie', cursive;
+}
+
+.shopping-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

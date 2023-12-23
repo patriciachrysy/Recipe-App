@@ -1,18 +1,16 @@
 class RecipesController < ApplicationController
-  load_and_authorize_resource
-
   before_action :authenticate_user!, except: %i[public_recipes]
 
   def index
-    @recipes = current_user.recipes.all
+    @recipes = current_user.recipes.includes({ recipe_foods: :food }, :user).all
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes({ recipe_foods: :food }, :user).find(params[:id])
   end
 
   def public_recipes
-    @public_recipes = Recipe.public_recipes
+    @public_recipes = Recipe.includes({ recipe_foods: :food }, :user).public_recipes
   end
 
   def update_public_status

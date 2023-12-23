@@ -1,11 +1,10 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  has_many :recipeFoods
+  has_many :recipe_foods
 
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true
-  validates :photo, presence: true
   validates :preparation_time, numericality: { greater_than_or_equal_to: 0 }
   validates :cooking_time, numericality: { greater_than_or_equal_to: 0 }
   validates :description, presence: true, length: { maximum: 250 }

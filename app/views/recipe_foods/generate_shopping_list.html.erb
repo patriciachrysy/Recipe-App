@@ -1,0 +1,25 @@
+<div class="food-container">   
+    <h2>Shopping List</h2>
+    <% if @shopping_items.count > 0 %>
+        <div class="shopping-stats">
+            <span>
+                Amount of food item to buy:
+                <%= @shopping_items.size %>
+            </span>
+            <span>
+                Total value of food:
+                $<%= @shopping_items.sum {|item| item.food.price * item.quantity} %>
+            </span>
+        </div>
+        <table>
+            <%= render 'foods/table_head', { columns: ['Food', 'Quantity', 'Price'], with_actions: false } %>
+            <tbody>
+                <% @shopping_items.each do |shopping_item| %>
+                    <%= render 'recipe_food', {recipe_food: shopping_item, with_actions: false } %>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+        <p>There is nothing to buy, you have everything you need.</p>
+    <% end %>
+</div>
