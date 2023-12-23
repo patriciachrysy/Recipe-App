@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   end
 
   get "/public_recipes" => "recipes#public_recipes"
-  
+
   get "/general_shopping_list" => "recipe_foods#generate_shopping_list"
   
   root 'recipes#public_recipes'
+  
   get "up" => "rails/health#show", as: :rails_health_check
 end
