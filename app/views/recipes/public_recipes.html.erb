@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag "recipes" %>
+
+<h1 class='head'>Public Recipes</h1>
+
+<ul class='public-ul-list'>
+    <% @public_recipes.each do |recipe| %>
+        <%= render recipe %>
+    <% end %>
+</ul>

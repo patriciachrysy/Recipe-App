@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag "recipes" %>
+
+<div class='recipe-show'>
+  <h2 class='head'><%= @recipe.name %></h2>
+  <div class='details'>
+    <div>
+      <p>Preparation time: <%= @recipe.preparation_time %></p>
+      <p>Cooking time: <%= @recipe.cooking_time %></p>
+      <p><%= @recipe.description %></p>
+    </div>
+    <% if (can? :update, @recipe) %>
+      <p>
+        Public
+        <%= link_to '', update_public_status_recipe_path(@recipe), class: @recipe.public ? 'toggle active' : 'toggle' %>
+      </p>
+    <% end %>  
+  </div>
+</div>
+<div class="food-container">   
+    <div class="shopping-stats">
+        <%= link_to "Generate shopping list", general_shopping_list_path, class: 'button-link' if can? :update, @recipe %>
+        <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: 'button-link' if can? :update, @recipe %>
+    </div>
+    <table>
+        <%= render 'foods/table_head', { columns: ['Food', 'Quantity', 'Value'], with_actions: (can? :update, @recipe) } %>
+        <tbody>
+            <% @recipe.recipe_foods.each do |recipe_food| %>
+                <%= render 'recipe_foods/recipe_food', {recipe_food: recipe_food, with_actions: (can? :update, @recipe) } %>
+            <% end %>
+        </tbody>
+    </table>
+</div>

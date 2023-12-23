@@ -1,0 +1,21 @@
+<li class='card'>
+    <div class='recipe-photo'>
+        <img src='<%= recipe.photo %>' alt='<%= recipe.name %>' class='recipe-photo' />
+        </div>
+        <div class='recipe-info'>
+        <div class='recipe-n'>
+            <%= link_to "#{recipe.name}", recipe_path(recipe), class: 'recipe-name' %>
+            <%= link_to "Remove", recipe_path(recipe), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: 'Are you sure you want to delete this recipe?'
+                }, class: 'remove' if can? :destroy, recipe %>
+        </div>
+        <div>
+            <p class='recipe-decision'><%= recipe.description %></p>
+        </div>
+        <div class='total'>
+            <p>Total food items: <%= recipe.recipe_foods.count %></p>
+            <p>Total price: $<%= recipe.recipe_foods.sum {|item| item.food.price * item.quantity} %></p>
+        </div>
+    </div>
+</li>

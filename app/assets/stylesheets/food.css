@@ -1,0 +1,49 @@
+.food-container {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.food-container .button-link {
+  align-self: end;
+}
+
+.food-container form {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.food-container form label {
+  font-weight: bold;
+  color: rgb(177, 131, 47);
+}
+
+.food-container form input[type=text],
+.food-container form input[type=number],
+.food-container form select,
+.food-container form textarea {
+  width: 95%;
+  font-family: 'Cookie', cursive;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.food-container form input[type=submit],
+.food-container form select {
+  font-family: 'Cookie', cursive;
+}
+
+.shopping-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

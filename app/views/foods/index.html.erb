@@ -1,0 +1,16 @@
+<div class="food-container">
+    <h2 class='header'>Your stored food</h2>
+    <%= link_to "Add Food", new_food_path, class: 'button-link' if can? :create, Food %>
+    <% if @foods.count > 0 %>
+        <table>
+            <%= render 'table_head', { columns: ['Food', 'Measurement Unit', 'Unit Price'], with_actions: (can? :update, Food) } %>
+            <tbody>
+                <% @foods.each do |food| %>
+                    <%= render food, with_actions: (can? :update, Food) %>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+        <p>No food in your store, click on the button to add some.</p>
+    <% end %>
+</div>

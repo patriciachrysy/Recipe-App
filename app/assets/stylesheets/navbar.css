@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 100px;
+  background-color: rgb(0, 0, 38);
+}
+
+.navbar-brand,
+.nav-link {
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(177, 131, 47);
+  background-color: rgb(0, 0, 38);
+  border: none;
+  cursor: pointer;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 20px;
+}
