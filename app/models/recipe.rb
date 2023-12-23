@@ -1,11 +1,7 @@
 class Recipe < ApplicationRecord
-  belongs_to :user, class_name: 'User', foreign_key: 'user_id'
-
-  has_many :foods
+  belongs_to :user
 
   mount_uploader :photo, PhotoUploader
-
-  attribute :public, :boolean, default: false
 
   validates :name, presence: true
   validates :photo, presence: true
@@ -14,5 +10,5 @@ class Recipe < ApplicationRecord
   validates :description, presence: true, length: { maximum: 250 }
   validates :public, inclusion: { in: [true, false] }
 
-  scope :public_recipes, -> { where(public: true).includes(:foods).order(created_at: :desc) }
+  scope :public_recipes, -> { where(public: true).order(created_at: :desc) }
 end

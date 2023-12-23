@@ -1,0 +1,45 @@
+<%= form_with model: recipe do |form| %>
+  <div>
+    <%= form.label :photo %><br>
+    <%= form.file_field :photo %>
+    <% recipe.errors.full_messages_for(:photo).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% recipe.errors.full_messages_for(:name).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :preparation_time %><br>
+    <%= form.number_field :preparation_time %>
+    <% recipe.errors.full_messages_for(:preparation_time).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :cooking_time %><br>
+    <%= form.number_field :cooking_time %>
+    <% recipe.errors.full_messages_for(:cooking_time).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description, rows: 15 %><br>
+    <% recipe.errors.full_messages_for(:cooking_time).each do |message| %>
+      <p class='error-messages'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Save", class: 'button-link' %>
+  </div>
+<% end %>

@@ -1,6 +1,5 @@
 class Food < ApplicationRecord
   belongs_to :user
-  belongs_to :recipe
 
   validates :name, presence: true
   validates :measurement_unit, presence: true

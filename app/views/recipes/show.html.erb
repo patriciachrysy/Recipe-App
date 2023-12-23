@@ -1,5 +1,4 @@
 <%= stylesheet_link_tag "recipes" %>
-<%= link_to '<', recipes_path, class: 'back-link'  %>
 
 <div class='recipe-show'>
   <h2 class='head'><%= @recipe.name %></h2>
@@ -9,6 +8,11 @@
       <p>Cooking time: <%= @recipe.cooking_time %></p>
       <p><%= @recipe.description %></p>
     </div>
-    <p>Public <%= @recipe.public %></p>
+    <% if (can? :update, @recipe) %>
+      <p>
+        Public
+        <%= link_to '', update_public_status_recipe_path(@recipe), class: @recipe.public ? 'toggle active' : 'toggle' %>
+      </p>
+    <% end %>  
   </div>
 </div>

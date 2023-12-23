@@ -1,10 +1,10 @@
 class RecipesController < ApplicationController
   load_and_authorize_resource
 
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[public_recipes]
 
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes.all
   end
 
   def show
@@ -16,18 +16,21 @@ class RecipesController < ApplicationController
   end
 
   def update_public_status
-    @recipe = Recipe.find(params[:id])
-    @recipe.update(public: true)
+    @recipe = current_user.recipes.find(params[:id])
+    authorize! :update, @recipe
+    @recipe.update(public: !@recipe.public)
 
-    redirect_to @recipe, notice: 'Recipe is now public.'
+    redirect_to @recipe, notice: @recipe.public ? 'Recipe is now public.' : 'Recipe is now private.'
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.new
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
+    authorize! :create, @recipe
+
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created.'
     else
@@ -36,13 +39,17 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe = current_user.recipes.find(params[:id])
+    authorize! :destroy, @recipe
+
     @recipe.destroy
-    redirect_to recipes_url, notice: 'Recipe was successfully destroyed.'
+
+    redirect_to recipes_path, notice: 'Recipe was successfully destroyed.'
   end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :photo, :steps, :preparation_time, :cooking_time, :description, :public)
+    params.require(:recipe).permit(:name, :photo, :preparation_time, :cooking_time, :description)
   end
 end
