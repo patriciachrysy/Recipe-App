@@ -1,19 +1,59 @@
 <%= stylesheet_link_tag "navbar" %>
 
 <nav class="navbar">
+  <div>
     <a class="navbar-brand" href="/">Daily Recipes</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <% if current_user %>
-          <li class="nav-item"> <%= link_to "Recipes", recipes_path, class: "nav-link" %></li>
-          <li class="nav-item"> <%= link_to "Public Recipes", public_recipes_path, class: "nav-link" %></li>
-          <li class="nav-item"> <%= link_to "Foods", foods_path, class: "nav-link" %></li>
-          <li class="nav-item"> <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-item"> <%= link_to "Log out", logout_path, class: "nav-link" %></li>
-        <% else %>
-          <li class="nav-item"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"  %></li>
-          <li class="nav-item"> <%= link_to "Sign In", login_path, class: "nav-link"  %></li>
-        <% end %>
-      </ul>
-    </div>
+  </div>
+  <div class="navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to "Recipes", recipes_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Public Recipes", public_recipes_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Foods", foods_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item" id="user-section">
+          <% if current_user.photo.present? %>
+            <%= image_tag current_user.photo, alt: "User Photo", id: "user-circle" %>
+          <% else %>
+            <div class="nav-link" id="user-circle"><%= current_user.name.first.upcase %></div>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign In", login_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
+
+<div id="user-info" class="hidden">
+  <ul id="user-menu">
+    <li class="user-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "user-link" %></li>
+    <li class="user-item"><%= link_to "Shopping List", edit_user_registration_path, class: "user-link" %></li>
+    <li class="user-item"><%= link_to "Log out", logout_path, class: "user-link" %></li>
+  </ul>
+</div>
+
+<script>
+  $(function() {
+    $("#user-circle").click(function() {
+      $("#user-info").toggleClass("hidden");
+    });
+
+    $(document).click(function(event) {
+      if (!$(event.target).closest("#user-circle, #user-info").length) {
+        $("#user-info").addClass("hidden");
+      }
+    });
+  });
+</script>
+
