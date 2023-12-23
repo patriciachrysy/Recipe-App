@@ -41,3 +41,9 @@
   height: 200px;
   width: 200px;
 }
+
+.recipe-amount {
+  text-align: end;
+  padding: 20px;
+  color: rgb(0, 0, 38);
+}
