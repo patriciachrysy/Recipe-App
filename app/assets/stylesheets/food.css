@@ -26,7 +26,8 @@
 
 .food-container form input[type=text],
 .food-container form input[type=number],
-.food-container form select {
+.food-container form select,
+.food-container form textarea {
   width: 95%;
   font-family: 'Cookie', cursive;
   border: 2px solid black;

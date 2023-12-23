@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.nav-item {
+  list-style: none;
+}
+
 .navbar-nav {
   display: flex;
   gap: 20px;

@@ -14,7 +14,7 @@ class Ability
       can :update, Food, user_id: user.id
       can :destroy, Food, user_id: user.id
 
-      can :read, Recipe, public: true
+      can :read, Recipe
       can :create, Recipe
       can :update, Recipe, user_id: user.id
       can :destroy, Recipe, user_id: user.id
